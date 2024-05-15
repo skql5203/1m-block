@@ -90,7 +90,7 @@ OK
 9.229e-06 seconds.
 
 ## file을 읽어 올 때 걸린 시간
-jsw5203@jsw5203-virtual-machine:~/ip$ sudo ./nfqnl_test top-1m.txt
+jsw5203@jsw5203-virtual-machine:~/ip$ sudo ./1m-block top-1m.txt
 1.81241 seconds.
 ## top 결과 메모리 16기가중 0.4% 점유
 top - 18:02:38 up  2:38,  2 users,  load average: 0.34, 0.59, 0.75
@@ -100,6 +100,6 @@ MiB Mem :  15948.6 total,   6031.7 free,   2647.0 used,   7269.9 buff/cache
 MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.  12806.1 avail Mem 
 
     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                          
-  34979 root      20   0   75084  72836   3712 S   0.0   0.4   0:01.71 nfqnl_test
+  34979 root      20   0   75084  72836   3712 S   0.0   0.4   0:01.71 1m-block
 
 
