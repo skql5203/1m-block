@@ -164,7 +164,7 @@ int main(int argc, char **argv)
 	int fd;
 	int rv;
 	std::vector<std::string> v;
-	int f = open(argv[1],O_RDONLY); // 파일 읽기 전용으로 열기
+	int f = open(argv[1],O_RDONLY);
     if (f == -1) {
         std::cerr << "can not open" << "\n";
         return 1;
@@ -173,11 +173,11 @@ int main(int argc, char **argv)
 
     char buffer[1000];
     int size;
-	std::string leftover;
+	std::string left;
 	START_TIME
     while ((size = read(f, buffer, sizeof(buffer) - 1)) > 0) {
         buffer[size] = '\0';
-        std::string str = leftover + std::string(buffer);
+        std::string str = left + std::string(buffer);
         unsigned long long int start = 0, end;
         while ((end = str.find('\n', start)) != std::string::npos) {
             std::string s = str.substr(start, end - start);
@@ -187,12 +187,12 @@ int main(int argc, char **argv)
             }
             start = end + 1;
         }
-        leftover = str.substr(start);
+        left = str.substr(start);
     }
-    if (!leftover.empty()) {
-        unsigned long long int Pos = leftover.find(',');
+    if (!left.empty()) {
+        unsigned long long int Pos = left.find(',');
         if (Pos != std::string::npos) {
-            site.insert(leftover.substr(Pos + 1));
+            site.insert(left.substr(Pos + 1));
         }
     }
 
