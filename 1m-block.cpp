@@ -157,7 +157,10 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
 
 int main(int argc, char **argv)
 {
-
+	if (argc != 2) {
+        	printf("Usage: sudo %s [filename]\n", argv[0]);
+        	return 1;
+	}
 	struct nfq_handle *h;
 	struct nfq_q_handle *qh;
 	struct nfnl_handle *nh;
@@ -165,10 +168,10 @@ int main(int argc, char **argv)
 	int rv;
 	std::vector<std::string> v;
 	int f = open(argv[1],O_RDONLY);
-    if (f == -1) {
-        std::cerr << "can not open" << "\n";
-        return 1;
-    }
+        if (f == -1) {
+            std::cerr << "can not open" << "\n";
+            return 1;
+        }
 
 
     char buffer[1000];
